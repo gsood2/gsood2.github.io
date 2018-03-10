@@ -1,10 +1,10 @@
 # linkage-2.0-
 
-First time 
+First time :-
 	npm install
 
-To start server
+To start server :-
 	npm start
 
-For gulp
+For gulp :-
 	gulp
