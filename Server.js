@@ -3,7 +3,7 @@ var app = express();
 var router = express.Router();
 var path = __dirname + '/dist/views/';
 
-router.use(function (req,res,next) {
+router.use(function (err,req,res,next) {
   console.log("/" + req.method);
   next();
 });
@@ -22,11 +22,12 @@ router.get("/contact",function(req,res){
 
 app.use("/",router);
 
-// app.use("*",function(req,res){
-//   res.sendFile(path + "404.html");
-// });
-
 app.use(express.static('dist'));
+
+app.use("*",function(req,res){
+  res.sendFile(path + "404.html");
+});
+
 
 app.listen(3000,function(){
   console.log("Live at Port 3000");

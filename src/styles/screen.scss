@@ -1,141 +1,190 @@
 @import 'base/variables';
-
 @import 'base/normalize';
 @import 'base/global';
-
+@import 'base/fonts';
 // Import Components
 // @import 'components/header';
-
 // Import Layouts
 // @import 'layouts/home';
-
 // Import Plugins
 // @import 'plugins/plugin';
-
-
-.header{
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  align-content: flex-start;
-  height:50vw;
-  min-height:400px;
-  max-height:550px;
-  min-width:300px;
-  color:#eee;
-}
-.header:after{
-  content:"";
-  width:100%;
-  height:40%;
-  position:absolute;
-  bottom:0;
-  left:0;
-  z-index:-1;
- background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(27,32,48,1) 100%);
-}
-.header:before{
-  content:"";
-  width:100%;
-  height:100%;
-  position:absolute;
-  top:0;
-  left:0;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform: translateZ(0) scale(1.0, 1.0);
-    transform: translateZ(0);
-  background:#1B2030 url(https://unsplash.it/1999/999?image=1063) top center no-repeat;
-  background-size:cover;
-  background-attachment:fixed;
-  animation: grow 60s  linear 10ms infinite;
-  transition:all 0.2s ease-in-out;
-  z-index:-2
-}
-.header a{
-  color:#eee
-}
-.menu{
-  display:block;
-  width:30px;
-  height:30px;
-  border:2px solid #fff;
-  border-radius:3px;
-  position:absolute;
-  right:20px;
-  top:20px;
-  text-decoration:none
-}
-.menu:after{
-  content:"";
-  display:block;
-  width:20px;
-  height:3px;
-  background:#fff;
-  position:absolute;
-  margin:0 auto;
-  top:5px;
-  left:0;
-  right:0;
-  box-shadow:0 8px, 0 16px
-}
-.logo{
-  border:2px solid #fff;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-block;
-  margin:20px;
-  padding:5px 10px;
-  font-weight:600;
-  font-size:1.2em;
-  box-sizing:border-box
-}
-.sides, .info{
-  flex: 0 0 auto;
-  width:50%
-}
-.info{
-  width:100%;
-  padding:15% 10% 0 10%;
-  text-align:center;
-  text-shadow:0 2px 3px rgba(0,0,0,0.2)
-}
-.author{
-  display:inline-block;
-  width:50px;
-  height:50px;
-  border-radius:50%;
-  background:url(http://favim.com/media/uploads/images/610/140308/black-n-white-cute-funny-iron-man-Favim.com-1462744.jpg) center no-repeat;
-  background-size:cover;
-  box-shadow:0 2px 3px rgba(0,0,0,0.3);
-  margin-bottom:3px
-}
-.info h4, .meta{
-  font-size:0.7em
-}
-.meta{
-  font-style:italic;
-}
-@keyframes grow{
-  0% { transform:scale(1)}
-  50% { transform:scale(1.2)}
-}
-.content{  
-  padding:5% 10%;
-  text-align:justify
-}
-.btn{
-  color:#333;
-  border:2px solid;
-  border-radius:3px;
-  text-decoration:none;
-  display:inline-block;
-  padding:5px 10px;
-  font-weight:600
+body {
+  font-family: 'Raleway-Regular', Arial, sans-serif;
 }
 
-.twtr{
-  margin-top:100px
-}.btn.twtr:after{content:"\1F426";padding-left:5px}
+%subHead {
+  font-size: 1.7rem;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  letter-spacing: 0.5rem;
+
+  font-family: 'Raleway-Medium', Arial, sans-serif;
+}
+
+%head {
+  font-size: 6rem;
+  margin-top: 0;
+  line-height: 1.5;
+  letter-spacing: .7rem;
+  margin-bottom: 1.8rem;
+  /*border-bottom: 1px solid $gray;*/
+
+  transition: all 0.5s ease-out;
+
+}
+
+%font-size{
+  font-size: 1.7rem;  
+}
+
+@media only screen and (max-width: 1024px) {
+   %head {
+      font-size: 6rem;
+      letter-spacing: .7rem;
+    }
+    %subHead {
+      font-size: 1.7rem;
+    }
+    %font-size{
+      font-size: 1.7rem;
+    }
+}
+@media only screen and (max-width: 768px) {
+   %head {
+      font-size: 5.4rem;
+      letter-spacing: .7rem;
+    }
+    %subHead {
+      font-size: 1.7rem;
+    }
+    %font-size{
+      font-size: 1.7rem;
+    }
+}
+@media only screen and (max-width: 600px) {
+  %head {
+      font-size: 3rem;
+      letter-spacing: .7rem;
+    }
+    %subHead {
+      font-size: 1.2rem;
+    }
+    %font-size{
+      font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 400px) {
+  %head {
+    font-size: 3rem;
+    letter-spacing: 0;
+  }
+  %subHead {
+      font-size: 1.2rem;
+    }
+    %font-size{
+      font-size: 1.2rem;
+    }
+}
+
+#about {
+  position: relative;
+  padding: 9.2rem 0 12rem;
+  background-color: $blue;
+  color: $white;
+  min-height: 496px;
+  text-align: center;
+  .about-wrap {
+    max-width: 850px;
+  }
+  h3{ 
+    @extend %subHead;  
+  }
+  h1{
+    @extend %head;
+
+    position:relative;
+    display:inline-block;
+  }
+  h1:after{
+    content:"";
+    position:absolute;
+    bottom:0px;
+    left:30%;
+    display:inline-block;
+    width: 50%;
+    margin-left:-11px;
+    border-bottom:$red solid 1px;
+  }
+  p{
+    font-size: 1.6rem;
+    line-height: 3rem;
+    color: $white;
+    word-wrap: break-word;
+  }
+}
+
+#product {
+  position: relative;
+  padding: 9.2rem 0 12rem;
+  background-color: #fafafa;
+  color: $white;
+  min-height: 496px;
+  text-align: center;
+
+  border-bottom: 3px solid  #d83a3d;
+  .product-wrap{
+    max-width: 850px;
+        margin: 0 auto;
+  }
+  h2{
+    @extend %subHead;
+
+    color: $red;
+    margin-bottom: 3.6rem;
+  }
+  .product-img{
+    max-width: 800px;
+    margin: 0 auto;
+
+        padding-top: 3rem;
+    /*padding-bottom: 3.9rem;*/
+  }
+  figure{
+    margin: 0;
+  }
+  figcaption{
+    line-height: 5;
+    letter-spacing: 5px;
+    @extend %font-size;
+
+    color: $black;
+  }
+}
+
+#footer {
+  position: relative;
+  padding: 9.2rem 0 12rem;
+  background-color: #000;
+  background-image: url(../images/contact-bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center, center;
+  color: $white;
+  min-height: 496px;
+  text-align: center;
+
+  border-bottom: 3px solid  #d83a3d;
+  .footer-wrap{
+    max-width: 850px;
+        margin: 0 auto;
+  }
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .8;
+    background-color: #151515;
+  }
+}

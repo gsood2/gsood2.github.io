@@ -28,6 +28,11 @@ gulp.task('html', function(){
     .pipe(gulp.dest('dist/views/'));
 });
 
+gulp.task('fonts', function(){
+  gulp.src('src/fonts/fonts/*')
+    .pipe(gulp.dest('dist/fonts/'));
+});
+
 gulp.task('images', function(){
   gulp.src('src/images/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
@@ -66,9 +71,10 @@ gulp.task('scripts', function(){
     // .pipe(browserSync.reload({stream:true}))
 });
 
-gulp.task('default', function(){
+gulp.task('default', ['fonts', 'images'] ,function(){
   gulp.watch("src/styles/**/*.scss", ['styles']);
   gulp.watch("src/scripts/**/*.js", ['scripts']);
   gulp.watch("src/views/*.html", ['html']);
+  gulp.watch("src/fonts/fonts/*", ['fonts']); 
   // gulp.watch("views/*.html", ['bs-reload']);
 });
