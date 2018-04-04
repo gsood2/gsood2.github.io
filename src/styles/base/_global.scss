@@ -385,12 +385,13 @@
   display: block;
   content: "";
   width: 2px;
-  height: 15.6rem;
+  height: 10.6rem;
   background-color: $red;
   margin: 0 auto 2.4rem;
+  z-index: 111;   
 
   position: absolute;
-  top: -60px;
+  top: -52px;
   left: 50%;
 }
 
